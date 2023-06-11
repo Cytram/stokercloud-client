@@ -91,8 +91,16 @@ class ControllerData:
         return Value(self.get_sub_item('boilerdata', '5')['value'], Unit.KWH)
 
     @property
+    def boiler_return_temperature(self):
+        return Value(self.get_sub_item('boilerdata', '17')['value'], Unit.DEGREE)
+
+    @property
     def state(self):
         return STATE_BY_VALUE.get(self.data['miscdata']['state']['value'])
+
+    @property
+    def hopper_distance(self):
+        return Value(self.get_sub_item('miscdata', 'hopperdistance')['value'], Unit.PERCENT)
 
     @property
     def hotwater_temperature_current(self):
