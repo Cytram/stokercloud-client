@@ -88,7 +88,7 @@ class ControllerData:
 
     @property
     def boiler_kwh(self):
-        return Value(self.get_sub_item('boilerdata', '5')['value'], Unit.KWH)
+        return Value(self.get_sub_item('boilerdata', '17')['value'], Unit.KWH)
 
     @property
     def boiler_return_temperature(self):
