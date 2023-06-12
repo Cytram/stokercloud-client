@@ -51,7 +51,7 @@ class Client:
             return self.make_request(url, *args, **kwargs)
 
     def update_controller_data(self):
-        self.cached_data = self.make_request("v16bckbeta/dataout2/controllerdata2.php")
+        self.cached_data = self.make_request("v16bckbeta/dataout2/controllerdata2.php?screen=b1,17,b2,5,b3,4,b4,6,b5,12,b6,14,b7,15,b8,16,b9,9,b10,5,d1,3,d2,4,d3,0,d4,0,d5,0,d6,0,d7,0,d8,0,d9,0,d10,0,h1,2,h2,3,h3,4,h4,7,h5,8,h6,1,h7,0,h8,0,h9,0,h10,0,w1,2,w2,3,w3,9,w4,0,w5,0")
         self.last_fetch = time.time()
 
     def controller_data(self):
