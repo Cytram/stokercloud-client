@@ -41,7 +41,7 @@ class Client:
                 raise TokenInvalid()
             absolute_url = urljoin(
                 self.BASE_URL,
-                "%s?token=%s" % (url, self.token)
+                "%s&token=%s" % (url, self.token)
             )
             logger.debug(absolute_url)
             with request.urlopen(absolute_url) as data:
