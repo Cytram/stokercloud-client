@@ -5,13 +5,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="stokercloud-client",
-    version="0.0.8",
+    version="0.1.0",
     author="Kristian Øllegaard",
     author_email="kristian@kristian.io",
     description="Python stokercloud client",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/KristianOellegaard/stokercloud-client",
+    url="https://github.com/Cytram/stokercloud-client",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
