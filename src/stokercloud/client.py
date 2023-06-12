@@ -28,7 +28,7 @@ class Client:
         with request.urlopen(
                 urljoin(
                     self.BASE_URL,
-                    'v2/dataout2/login.php?user=%s' % self.name
+                    'v16bckbeta/dataout2/login.php?user=%s' % self.name
                 )
         ) as response:
             data = json.loads(response.read())
@@ -51,7 +51,7 @@ class Client:
             return self.make_request(url, *args, **kwargs)
 
     def update_controller_data(self):
-        self.cached_data = self.make_request("v2/dataout2/controllerdata2.php")
+        self.cached_data = self.make_request("v16bckbeta/dataout2/controllerdata2.php")
         self.last_fetch = time.time()
 
     def controller_data(self):
