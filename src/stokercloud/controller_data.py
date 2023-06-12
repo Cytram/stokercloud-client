@@ -88,7 +88,7 @@ class ControllerData:
 
     @property
     def boiler_kwh(self):
-        return Value(self.get_sub_item('boilerdata', '17')['value'], Unit.KWH)
+        return Value(self.get_sub_item('boilerdata', '5')['value'], Unit.KWH)
 
     @property
     def boiler_return_temperature(self):
@@ -97,11 +97,6 @@ class ControllerData:
     @property
     def state(self):
         return STATE_BY_VALUE.get(self.data['miscdata']['state']['value'])
-
-    @property
-    def hopper_distance(self):
-        return Value(self.get_sub_item('miscdata', 'hopperdistance')['value'], Unit.PERCENT)
-
     @property
     def hotwater_temperature_current(self):
         return Value(self.get_sub_item('frontdata', 'dhw')['value'], Unit.DEGREE)
@@ -109,6 +104,10 @@ class ControllerData:
     @property
     def hotwater_temperature_requested(self):
         return Value(self.get_sub_item('frontdata', 'dhwwanted')['value'], Unit.DEGREE)
+
+    @property
+    def hopper_distance(self):
+        return Value(self.data['miscdata'].get('hopperdistance'), Unit.PERCENT)
 
     @property
     def consumption_total(self):
