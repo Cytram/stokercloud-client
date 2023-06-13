@@ -488,7 +488,7 @@ def test_controller_data():
     assert cd.boiler_return_temperature == Value("28.1", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("43.5", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
-    assert cd.state == State.POWER
+    assert cd.state == State.OFF
     assert cd.consumption_total == Value("7599", Unit.KILO_GRAM)
 
 

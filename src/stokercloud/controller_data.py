@@ -20,13 +20,12 @@ class Unit(Enum):
 
 
 class State(Enum):
-    POWER = 'lng_state_23'
+    POWER = 'state_14'
     HOT_WATER = 'state_7'
     IGNITION_1 = 'state_2'
     IGNITION_2 = 'state_4'
     FAULT_IGNITION = 'state_13'
-    OFF = 'state_14'
-
+    OFF = 'lng_state_23'
 
 STATE_BY_VALUE = {key.value: key for key in State}
 
