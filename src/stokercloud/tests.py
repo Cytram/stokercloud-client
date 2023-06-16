@@ -489,6 +489,7 @@ def test_controller_probe_heating():
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
     assert cd.state == State.HEATING_PROPE
     assert cd.consumption_total == Value("7631", Unit.KILO_GRAM)
+    assert cd.consumption_day == Value("2.2", Unit.KILO_GRAM)
 
 def test_controller_igniting():
     test_data = """
@@ -976,6 +977,7 @@ def test_controller_igniting():
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
     assert cd.state == State.IGNITION_1
     assert cd.consumption_total == Value("7631", Unit.KILO_GRAM)
+    assert cd.consumption_day == Value("2.2", Unit.KILO_GRAM)
 def test_controller_running():
     test_data = """
     {
@@ -1462,6 +1464,7 @@ def test_controller_running():
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
     assert cd.state == State.POWER
     assert cd.consumption_total == Value("7628", Unit.KILO_GRAM)
+    assert cd.consumption_day == Value("7.3", Unit.KILO_GRAM)
 
 def test_controller_shutdown():
     test_data = """
@@ -1949,6 +1952,7 @@ def test_controller_shutdown():
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
     assert cd.state == State.OFF
     assert cd.consumption_total == Value("7599", Unit.KILO_GRAM)
+    assert cd.consumption_day == Value("4.3", Unit.KILO_GRAM)
 
 
 def test_controller_data_connected():
