@@ -20,9 +20,10 @@ class Unit(Enum):
 
 
 class State(Enum):
-    POWER = 'state_14'
+    POWER = 'lng_state_5'
     HOT_WATER = 'state_7'
-    IGNITION_1 = 'state_2'
+    HEATING_PROPE = 'lng_state_0'
+    IGNITION_1 = 'lng_state_2'
     IGNITION_2 = 'state_4'
     FAULT_IGNITION = 'state_13'
     OFF = 'lng_state_23'
