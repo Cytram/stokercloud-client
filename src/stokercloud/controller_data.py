@@ -17,6 +17,7 @@ class Unit(Enum):
     DEGREE = 'deg'
     KILO_GRAM = 'kg'
     GRAM = 'g'
+    CM = 'cm'
 
 
 class State(Enum):
@@ -107,7 +108,7 @@ class ControllerData:
 
     @property
     def hopper_distance(self):
-        return Value(self.data['miscdata'].get('hopperdistance'), Unit.PERCENT)
+        return Value(self.data['miscdata'].get('hopperdistance'), Unit.CM)
 
     @property
     def consumption_total(self):
