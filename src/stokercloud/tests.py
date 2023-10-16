@@ -483,7 +483,7 @@ def test_controller_probe_heating():
     assert cd.alarm == PowerState.OFF
     assert cd.serial_number == "69173"
     assert cd.boiler_kwh == Value("0", Unit.KWH)
-    assert cd.hopper_distance == Value("39", Unit.PERCENT)
+    assert cd.hopper_capacity == Value("39", Unit.CM)
     assert cd.boiler_return_temperature == Value("43.1", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("62.7", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
@@ -971,7 +971,7 @@ def test_controller_igniting():
     assert cd.alarm == PowerState.OFF
     assert cd.serial_number == "69173"
     assert cd.boiler_kwh == Value("0", Unit.KWH)
-    assert cd.hopper_distance == Value("39", Unit.PERCENT)
+    assert cd.hopper_capacity == Value("39", Unit.CM)
     assert cd.boiler_return_temperature == Value("46.9", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("56.6", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
@@ -1458,7 +1458,7 @@ def test_controller_running():
     assert cd.alarm == PowerState.OFF
     assert cd.serial_number == "69173"
     assert cd.boiler_kwh == Value("10.9", Unit.KWH)
-    assert cd.hopper_distance == Value("40", Unit.PERCENT)
+    assert cd.hopper_capacity == Value("40", Unit.CM)
     assert cd.boiler_return_temperature == Value("59.7", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("77.8", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
@@ -1946,7 +1946,7 @@ def test_controller_shutdown():
     assert cd.alarm == PowerState.OFF
     assert cd.serial_number == "69173"
     assert cd.boiler_kwh == Value("3.8", Unit.KWH)
-    assert cd.hopper_distance == Value("49", Unit.PERCENT)
+    assert cd.hopper_capacity == Value("49", Unit.CM)
     assert cd.boiler_return_temperature == Value("28.1", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("43.5", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)

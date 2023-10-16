@@ -107,7 +107,7 @@ class ControllerData:
         return Value(self.get_sub_item('frontdata', 'dhwwanted')['value'], Unit.DEGREE)
 
     @property
-    def hopper_distance(self):
+    def hopper_capacity(self):
         return Value(self.data['miscdata'].get('hopperdistance'), Unit.CM)
 
     @property
