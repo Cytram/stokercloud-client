@@ -25,7 +25,7 @@ class State(Enum):
     HOT_WATER = 'state_7'
     HEATING_PROPE = 'lng_state_0'
     IGNITION_1 = 'lng_state_2'
-    IGNITION_2 = 'state_4'
+    IGNITION_2 = 'lng_state_4'
     FAULT_IGNITION = 'state_13'
     OFF = 'lng_state_23'
 
