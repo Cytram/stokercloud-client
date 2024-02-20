@@ -28,6 +28,7 @@ class State(Enum):
     IGNITION_2 = 'lng_state_4'
     FAULT_IGNITION = 'state_13'
     OFF = 'lng_state_23'
+    STOPPED_BY_EXTERNAL_TEMP = 'lng_state_22'
 
 STATE_BY_VALUE = {key.value: key for key in State}
 
