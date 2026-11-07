@@ -21,16 +21,43 @@ class Unit(Enum):
 
 
 class State(Enum):
-    POWER = 'lng_state_5'
-    HOT_WATER = 'state_7'
     HEATING_PROPE = 'lng_state_0'
+    POWER_UP = 'lng_state_1'
     IGNITION_1 = 'lng_state_2'
     IGNITION_2 = 'lng_state_4'
-    FAULT_IGNITION = 'state_13'
-    OFF = 'lng_state_23'
+    POWER = 'lng_state_5'
+    HOT_WATER = 'lng_state_7'
+    ALARM_BOILER_TEMPERATURE = 'lng_state_8'
+    STOPPED_TEMPERATURE_REACHED = 'lng_state_9'
+    ALARM_BURNER_TEMPERATURE = 'lng_state_11'
+    PLUG_DISCONNECTED = 'lng_state_12'
+    FAULT_IGNITION = 'lng_state_13'
+    OFF = 'lng_state_14'
+    ERROR_BOILER_SENSOR = 'lng_state_15'
+    ERROR_BURNER_SENSOR = 'lng_state_17'
+    ERROR_AUGER_OUTPUT = 'lng_state_19'
+    ERROR_NO_FIRE = 'lng_state_20'
     STOPPED_BY_EXTERNAL_TEMP = 'lng_state_22'
+    STOPPED_BY_TIMER = 'lng_state_23'
+    STOPPED_BY_EXTERNAL_CONTACT = 'lng_state_24'
+    STOPPED_BY_WEATHER_COMP = 'lng_state_25'
+    ALARM_OVERHEAT = 'lng_state_29'
+    STOPPED_BY_CASCADE = 'lng_state_30'
+    ERROR_COMPRESSOR = 'lng_state_31'
+    ERROR_AIRFLOW = 'lng_state_37'
+    OUTLET_TEMPERATURE_TOO_HIGH = 'lng_state_38'
+    ASH_BOX_NOT_CONNECTED = 'lng_state_39'
+    ALARM_BOILER_VACUUM = 'lng_state_41'
+    ERROR_OXYGEN_SENSOR = 'lng_state_42'
+    COMPRESSOR_CLEANING = 'lng_state_43'
+    ERROR_IGNITER = 'lng_state_44'
+    ERROR_VACUUM_SENSOR = 'lng_state_45'
+    STOPPED_EMPTY_HOPPER = 'lng_state_46'
+    NO_DISTANCE_SENSOR_READING = 'lng_state_47'
 
 STATE_BY_VALUE = {key.value: key for key in State}
+# The API has also been seen sending these codes without the lng_ prefix.
+STATE_BY_VALUE.update({key.value[len('lng_'):]: key for key in State})
 
 
 class Value:
@@ -98,7 +125,8 @@ class ControllerData:
 
     @property
     def state(self):
-        return STATE_BY_VALUE.get(self.data['miscdata']['state']['value'])
+        value = self.data['miscdata']['state']['value']
+        return STATE_BY_VALUE.get(value, value)
     @property
     def hotwater_temperature_current(self):
         return Value(self.get_sub_item('frontdata', 'dhw')['value'], Unit.DEGREE)

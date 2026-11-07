@@ -2438,7 +2438,7 @@ def test_controller_shutdown():
     assert cd.boiler_return_temperature == Value("28.1", Unit.DEGREE)
     assert cd.boiler_temperature_current == Value("43.5", Unit.DEGREE)
     assert cd.boiler_temperature_requested == Value("85.0", Unit.DEGREE)
-    assert cd.state == State.OFF
+    assert cd.state == State.STOPPED_BY_TIMER
     assert cd.consumption_total == Value("7599", Unit.KILO_GRAM)
     assert cd.consumption_day == Value("4.3", Unit.KILO_GRAM)
 
@@ -2930,3 +2930,17 @@ def test_controller_data_connected():
     test_data = '{"notconnected": 1}'
     with pytest.raises(NotConnectedException):
         ControllerData(json.loads(test_data))
+
+
+@pytest.mark.parametrize('value, expected', [
+    ('lng_state_14', State.OFF),
+    ('lng_state_23', State.STOPPED_BY_TIMER),
+    ('lng_state_46', State.STOPPED_EMPTY_HOPPER),
+    ('lng_state_7', State.HOT_WATER),
+    ('state_7', State.HOT_WATER),
+    ('state_13', State.FAULT_IGNITION),
+    ('lng_state_99', 'lng_state_99'),
+])
+def test_state_mapping(value, expected):
+    cd = ControllerData({'miscdata': {'state': {'value': value}}, 'notconnected': 0, 'serial': 'x'})
+    assert cd.state == expected
